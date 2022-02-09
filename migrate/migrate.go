@@ -55,7 +55,7 @@ func main() {
     // create the insert sql query
     // returning userid will return the id of the inserted user
     // execute the sql statement
-    res, err := db.Exec(fmt.Sprintf("CREATE TABLE %s (userid SERIAL PRIMARY KEY, name TEXT, age INT, location TEXT)", "users"))
+    res, err := db.Exec(fmt.Sprintf("CREATE TABLE IF NOT EXISTS %s (userid SERIAL PRIMARY KEY, name TEXT, age INT, location TEXT)", "users"))
     if err != nil {
       log.Fatal(err)
     }

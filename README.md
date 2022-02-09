@@ -45,7 +45,7 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:8080/api/del
 ## Database Connection
 ### URL Variable Example
 ```
-POSTGRES_URL=postgres://user:pass@127.0.0.1:5432/databasename?sslmode=disable
+POSTGRES_URL=postgres://user:pass@<db-host-ip-addr>:5432/databasename?sslmode=disable
 ```
 
 ## Docker Reference
@@ -67,7 +67,7 @@ docker run \
 ```
 docker run \
    --name=migrate \
-   -e POSTGRES_URL=postgres://goappuser:goapppass@<host-ip-addr>:5432/goappdb?sslmode=disable \
+   -e POSTGRES_URL=postgres://goappuser:goapppass@<db-host-ip-addr>:5432/goappdb?sslmode=disable \
    goapp \
    /app/migrate
 ```
@@ -76,6 +76,6 @@ docker run \
 docker run -d \
    --name=goapp \
    -p 8080:8080 \
-   -e POSTGRES_URL=postgres://goappuser:goapppass@<host-ip-addr>:5432/goappdb?sslmode=disable \
+   -e POSTGRES_URL=postgres://goappuser:goapppass@<db-host-ip-addr>:5432/goappdb?sslmode=disable \
    goapp
 ```

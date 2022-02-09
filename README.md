@@ -51,13 +51,13 @@ POSTGRES_URL=postgres://user:pass@<db-host-ip-addr>:5432/databasename?sslmode=di
 ## Docker Reference
 
 ### You don't wanna build?
-##### Go to https://hub.docker.com/repository/docker/paulovigne/goapp-crud
+##### Go to https://hub.docker.com/r/paulovigne/goapp-crud
 
 ### Clone and Build
 ```
 git clone https://github.com/paulovigne/goapp.git
 cd goapp
-docker build -t goapp .
+docker build -t goapp-crud .
 ```
 
 ### Example of PostgreSQL Database Backend
@@ -79,7 +79,7 @@ docker run \
 docker run \
    --name=migrate \
    -e POSTGRES_URL=postgres://goappuser:goapppass@<db-host-ip-addr>:5432/goappdb?sslmode=disable \
-   goapp \
+   goapp-crud \
    /app/migrate
 ```
 ### Start Goapp
@@ -88,5 +88,5 @@ docker run -d \
    --name=goapp \
    -p 8080:8080 \
    -e POSTGRES_URL=postgres://goappuser:goapppass@<db-host-ip-addr>:5432/goappdb?sslmode=disable \
-   goapp
+   goapp-crud
 ```

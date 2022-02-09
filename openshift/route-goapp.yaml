@@ -1,0 +1,13 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: goapp
+spec:
+  path: /
+  to:
+    kind: Service
+    name: goapp
+    weight: 100
+  port:
+    targetPort: tcp-goapp
+  wildcardPolicy: None

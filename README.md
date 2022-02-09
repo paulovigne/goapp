@@ -67,7 +67,7 @@ docker run \
 ```
 docker run \
    --name=migrate \
-   -e POSTGRES_URL=postgres://goappuser:goapppass@127.0.0.1:5432/goappdb?sslmode=disable \
+   -e POSTGRES_URL=postgres://goappuser:goapppass@<host-ip-addr>:5432/goappdb?sslmode=disable \
    goapp \
    /app/migrate
 ```
@@ -76,6 +76,6 @@ docker run \
 docker run -d \
    --name=goapp \
    -p 8080:8080 \
-   -e POSTGRES_URL=postgres://goappuser:goapppass@127.0.0.1:5432/goappdb?sslmode=disable \
+   -e POSTGRES_URL=postgres://goappuser:goapppass@<host-ip-addr>:5432/goappdb?sslmode=disable \
    goapp
 ```

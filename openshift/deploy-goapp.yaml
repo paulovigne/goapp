@@ -5,6 +5,7 @@ metadata:
   labels:
     app: goapp
   name: goapp
+  app.kubernetes.io/part-of: goapp
 spec:
   replicas: 1
   selector:

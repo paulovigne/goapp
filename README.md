@@ -50,6 +50,9 @@ POSTGRES_URL=postgres://user:pass@<db-host-ip-addr>:5432/databasename?sslmode=di
 
 ## Docker Reference
 
+### You don't wanna build?
+##### Go to https://hub.docker.com/repository/docker/paulovigne/goapp-crud
+
 ### Clone and Build
 ```
 git clone https://github.com/paulovigne/goapp.git

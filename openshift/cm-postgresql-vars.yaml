@@ -10,3 +10,5 @@ data:
 kind: ConfigMap
 metadata:
   name: postgresql-vars
+  labels:
+    app.kubernetes.io/part-of: goapp

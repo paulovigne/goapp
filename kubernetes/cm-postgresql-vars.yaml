@@ -1,0 +1,12 @@
+apiVersion: v1
+data:
+  POSTGRESQL_DATABASE: goapp
+  POSTGRESQL_USERNAME: goapp
+  BITNAMI_DEBUG: "false"
+  POSTGRESQL_PORT_NUMBER: "5432"
+  POSTGRESQL_VOLUME_DIR: "/bitnami/postgresql"
+  PGDATA: "/bitnami/postgresql/data"
+  POSTGRESQL_ENABLE_TLS: "no"
+kind: ConfigMap
+metadata:
+  name: postgresql-vars

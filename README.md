@@ -11,11 +11,11 @@
 
 ## Methods
 
-### GET "/api/user/{id}"
-### GET "/api/user"
-### POST "/api/newuser"
-### PUT "/api/user/{id}"
-### DELETE "/api/deleteuser/{id}"
+#### GET "/api/user/{id}"
+#### GET "/api/user"
+#### POST "/api/newuser"
+#### PUT "/api/user/{id}"
+#### DELETE "/api/deleteuser/{id}"
 
 ## Create Registry
 ```
@@ -51,6 +51,9 @@ POSTGRES_URL=postgres://user:pass@127.0.0.1:5432/databasename?sslmode=disable
 ## Docker Reference
 ### Example of PostgreSQL Database Backend
 ```
+mkdir -p /postgresql
+chown -R 1001:1001 /postgresql
+
 docker run \
    --name postgresql \
    -e POSTGRESQL_USERNAME=goappuser \

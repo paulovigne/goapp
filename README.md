@@ -1,13 +1,17 @@
-ID       int64  `json:"id"`
-Name     string `json:"name"`
-Location string `json:"location"`
-Age      int64  `json:"age"`
+# Types
+| Field    | Type   | Reference       |
+|----------|--------|-----------------|
+| ID       | int64  | json:"id"       |
+| Name     | string | json:"name"     |
+| Location | string | json:"location" |
+| Age      | int64  | json:"age"      |
 
-GET "/api/user/{id}"
-GET "/api/user"
-POST "/api/newuser"
-PUT "/api/user/{id}"
-DELETE "/api/deleteuser/{id}"
+# Methods
+## GET "/api/user/{id}"
+## GET "/api/user"
+## POST "/api/newuser"
+## PUT "/api/user/{id}"
+## DELETE "/api/deleteuser/{id}"
 
 # Create Registry
 curl -d '{"name":"paulo", "location":"rio", "age":38}'  -H "Content-Type: application/json" -X POST http://localhost:8080/api/newuser

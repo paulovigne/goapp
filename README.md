@@ -49,6 +49,14 @@ POSTGRES_URL=postgres://user:pass@<db-host-ip-addr>:5432/databasename?sslmode=di
 ```
 
 ## Docker Reference
+
+### Clone and Build
+```
+git clone https://github.com/paulovigne/goapp.git
+cd goapp
+docker build -t goapp .
+```
+
 ### Example of PostgreSQL Database Backend
 ```
 mkdir -p /postgresql

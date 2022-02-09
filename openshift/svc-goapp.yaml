@@ -3,6 +3,7 @@ kind: Service
 metadata:
   labels:
     app: goapp
+    app.kubernetes.io/part-of: goapp
   name: goapp
 spec:
   ports:

@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landing-page
+  labels:
+     app: landing-page
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: landing-page
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: landing-page
+        tier: frontend
+    spec:
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
+        fsGroup: 1001
+      containers:
+      - image: quay.io/bitnami/nginx:1.21
+        resources:
+          requests:
+            cpu: 25m
+            memory: 50Mi
+          limits:
+            cpu: 75m
+            memory: 100Mi
+        imagePullPolicy: Always
+        name: nginx
+        resources: {}
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities: {}
+          privileged: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+        ports:
+        - containerPort: 8080
+          name: tcp-landingpage
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /
+            port: tcp-landingpage
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+        livenessProbe:
+          httpGet:
+            path: /
+            port: tcp-landingpage
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+        stdin: true
+        tty: true
+        volumeMounts:
+        - mountPath: "/opt/bitnami/nginx/html/index.html"
+          name: landing-page
+          subPath: index.html
+        - mountPath: /opt/bitnami/nginx/tmp
+          name: tmp
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: landing-page
+        configMap:
+          defaultMode: 493
+          name: landing-page
+      - emptyDir: {}
+        name: tmp

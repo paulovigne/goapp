@@ -1,0 +1,47 @@
+apiVersion: v1
+data:
+  index.html: |-
+    <h1 id="simple-go-crud-app-with-postgresql-database">Simple Go CRUD App with PostgreSQL Database</h1>
+    <h2 id="types">Types</h2>
+    <table>
+    <thead>
+    <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Reference</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>ID</td>
+    <td>int64</td>
+    <td>json:&quot;id&quot;</td>
+    </tr>
+    <tr>
+    <td>Name</td>
+    <td>string</td>
+    <td>json:&quot;name&quot;</td>
+    </tr>
+    <tr>
+    <td>Location</td>
+    <td>string</td>
+    <td>json:&quot;location&quot;</td>
+    </tr>
+    <tr>
+    <td>Age</td>
+    <td>int64</td>
+    <td>json:&quot;age&quot;</td>
+    </tr>
+    </tbody>
+    </table>
+    <h2 id="methods">Methods</h2>
+    <h4 id="get-api-user-id-">GET &quot;/api/user/{id}&quot;</h4>
+    <h4 id="get-api-user-">GET &quot;/api/user&quot;</h4>
+    <h4 id="post-api-newuser-">POST &quot;/api/newuser&quot;</h4>
+    <h4 id="put-api-user-id-">PUT &quot;/api/user/{id}&quot;</h4>
+    <h4 id="delete-api-deleteuser-id-">DELETE &quot;/api/deleteuser/{id}&quot;</h4>
+kind: ConfigMap
+metadata:
+  name: landing-page
+  labels:
+     app: landing-page

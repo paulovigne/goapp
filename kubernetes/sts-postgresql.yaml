@@ -14,9 +14,9 @@ spec:
   serviceName: postgresql
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app.kubernetes.io/name: postgresql
+        tier: backend
       name: postgresql
     spec:
       containers:

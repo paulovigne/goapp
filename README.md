@@ -90,3 +90,7 @@ docker run -d \
    -e POSTGRES_URL=postgres://goappuser:goapppass@<db-host-ip-addr>:5432/goappdb?sslmode=disable \
    goapp-crud
 ```
+
+## Kubernetes Model
+
+![alt text](https://github.com/paulovigne/goapp/blob/master/goapp-appref.png?raw=true)

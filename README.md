@@ -93,4 +93,11 @@ docker run -d \
 
 ## Kubernetes Model
 
+```
+git clone https://github.com/paulovigne/goapp.git
+cd goapp
+kubectl create ns goapp
+kubectl -n goapp apply -f kubernetes/
+```
+
 ![alt text](https://github.com/paulovigne/goapp/blob/master/goapp-appref.png?raw=true)

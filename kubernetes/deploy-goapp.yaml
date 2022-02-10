@@ -19,6 +19,7 @@ spec:
     metadata:
       labels:
         app: goapp
+        tier: frontend
     spec:
       securityContext:
         runAsUser: 1001

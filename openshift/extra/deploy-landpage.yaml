@@ -23,10 +23,6 @@ spec:
         app: landing-page
         tier: frontend
     spec:
-      securityContext:
-        runAsUser: 1001
-        runAsGroup: 1001
-        fsGroup: 1001
       containers:
       - image: quay.io/bitnami/nginx:1.21
         resources:

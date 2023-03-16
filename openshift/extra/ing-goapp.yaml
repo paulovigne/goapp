@@ -1,26 +1,15 @@
-kind: Ingress
-apiVersion: networking.k8s.io/v1
+kind: Route
+apiVersion: route.openshift.io/v1
 metadata:
-  name: landing-page
-  namespace: goapp
+  name: goapp-landing
   labels:
     app.kubernetes.io/part-of: goapp
 spec:
-  rules:
-    - host: landing-page.local
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: landing-page
-                port:
-                  number: 8080
-          - path: /api
-            pathType: Prefix
-            backend:
-              service:
-                name: goapp
-                port:
-                  number: 8080
+  path: /
+  to:
+    kind: Service
+    name: landing-page
+    weight: 100
+  port:
+    targetPort: tcp-landingpage
+  wildcardPolicy: None

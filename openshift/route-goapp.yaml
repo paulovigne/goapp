@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: goapp
 spec:
-  path: /
+  path: /api
   to:
     kind: Service
     name: goapp

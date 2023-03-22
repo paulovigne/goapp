@@ -24,7 +24,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: quay.io/bitnami/nginx:1.21
+      - image: bitnami/nginx:1.21
         resources:
           requests:
             cpu: 25m

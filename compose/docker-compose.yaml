@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  goapp:
+    image: paulovigne/goapp-crud:v1
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      POSTGRES_URL: postgres://goappuser:goapppass@postgres:5432/goappdb?sslmode=disable
+
+  migrate:
+    image: paulovigne/goapp-crud:v1
+    command: /app/migrate
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_URL: postgres://goappuser:goapppass@postgres:5432/goappdb?sslmode=disable
+
+  postgres:
+    image: quay.io/bitnami/postgresql:13
+    restart: always
+    environment:
+      POSTGRESQL_USERNAME: goappuser
+      POSTGRESQL_PASSWORD: goapppass
+      POSTGRESQL_DATABASE: goappdb
+    healthcheck:
+      test: pg_isready -U goappuser -d goappdb
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/postgresql:/bitnami/postgresql/data
+
+volumes:
+  postgres_data:

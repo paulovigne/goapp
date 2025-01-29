@@ -1,6 +1,6 @@
 # builder image
 # FROM golang:1.16-alpine3.14 as builder-goapp
-FROM quay.io/bitnami/golang:1.16 as builder-goapp
+FROM bitnami/golang:1.16 as builder-goapp
 
 RUN mkdir /build
 ADD ./goapp/ /build/
@@ -9,7 +9,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -o goapp .
 
 # build migration tool
 # FROM golang:1.16-alpine3.14 as builder-migrate
-FROM quay.io/bitnami/golang:1.16 as builder-migrate
+FROM bitnami/golang:1.16 as builder-migrate
 
 RUN mkdir /build
 ADD ./migrate/ /build/

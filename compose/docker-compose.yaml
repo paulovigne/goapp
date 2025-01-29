@@ -19,7 +19,7 @@ services:
       POSTGRES_URL: postgres://goappuser:goapppass@postgres:5432/goappdb?sslmode=disable
 
   postgres:
-    image: quay.io/bitnami/postgresql:13
+    image: bitnami/postgresql:13
     restart: always
     environment:
       POSTGRESQL_USERNAME: goappuser

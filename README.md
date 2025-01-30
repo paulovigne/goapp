@@ -72,7 +72,7 @@ docker run \
    -e POSTGRESQL_DATABASE=goappdb \
    -p 5432:5432 \
    -v /postgresql:/bitnami/postgresql/data \
-   quay.io/bitnami/postgresql:13
+   bitnami/postgresql:13
 ```
 ### Create Tables
 ```
